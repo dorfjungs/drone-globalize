@@ -12,6 +12,7 @@ RUN curl -L $DRONE_CLI | tar zx && install -t /usr/local/bin drone
 
 VOLUME /data
 
+ADD globalize.py /globalize.py
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 

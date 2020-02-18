@@ -4,7 +4,7 @@ The feature of global secrets seems unnecessary to the most ci/cd systems, so he
 
 ## Usage
 ```yml
-backup:
+globalize:
   image: dorfjungs/drone-globalize:v1.0
   environment:
     # The secrets you want to sync with all available organizations
@@ -34,22 +34,22 @@ backup:
     # secrets, we need a "namespace" to put all the secrets into
     SECRET_PREFIX: custom_prefix_
 
-    # Optional, Default = false
+    # Optional, Default = 0
     # This enables the automatic admin token
     # retrieval from the database
-    SQLITE_ENABLED: true
+    SQLITE_ENABLED: 1
 
     # Optional, Default = database.sql
     # Sets the database file name inside the
     # mounted volume
     SQLITE_DATABASE_NAME: custom_db_name.sqlite
 
-    # Optional, Default = false
+    # Optional, Default = 0
     # Since the cli can't output the current secret data
     # we need direct access to the database in order to compare the new data
     # with the old data. If this is disabled all active secrets will be updated
     # on each cycle to ensure that the correct data will be used
-    DB_SECRET_DIFF_CHECK: true
+    DB_SECRET_DIFF_CHECK: 1
 
     # Optional, Default = 30
     # The timeout for after each sync cycle (in seconds)

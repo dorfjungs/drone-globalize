@@ -52,7 +52,8 @@ backup:
     DB_SECRET_DIFF_CHECK: true
 
     # Optional, Default = 30
-    SYNC_TIME: 60 # Seconds
+    # The timeout for after each sync cycle (in seconds)
+    SYNC_TIME: 60
   volumes:
     # Optional
     # If yo're using `SQLITE_ENABLED` you should also mount the database here

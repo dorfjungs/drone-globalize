@@ -1,5 +1,5 @@
 #!/bin/sh
-export DRONE_SECRETS=${DRONE_SECRETS:-'ansible_vault_password:j39jfkdldkx'}
+export DRONE_SECRETS=${DRONE_SECRETS:-''}
 export SECRET_PREFIX=${SECRET_PREFIX:-global_}
 
 while :; do
@@ -8,7 +8,7 @@ while :; do
 
   # Get token from database
   if [ ! -z "$SQLITE_ENABLED" ]; then
-    SQLITE_DATABASE=/data/${SQLITE_DATABASE_NAME:-database.sql}
+    SQLITE_DATABASE=/data/${SQLITE_DATABASE_NAME:-database.sqlite}
 
     # Export as droen token from database
     export DRONE_TOKEN=$(echo "SELECT user_hash FROM users WHERE user_admin=1 LIMIT 1" | sqlite3 $SQLITE_DATABASE)

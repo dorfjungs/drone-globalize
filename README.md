@@ -39,7 +39,7 @@ globalize:
     # retrieval from the database
     SQLITE_ENABLED: 1
 
-    # Optional, Default = database.sql
+    # Optional, Default = database.sqlite
     # Sets the database file name inside the
     # mounted volume
     SQLITE_DATABASE_NAME: custom_db_name.sqlite

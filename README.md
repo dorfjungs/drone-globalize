@@ -29,22 +29,17 @@ globalize:
     DRONE_TOKEN: '************'
 
     # Optional, Default = global_
-    # A fprefix attached to each secret name.
+    # A prefix attached to each secret name.
     # Since we want to achieve a sync without modifying existing
     # secrets, we need a "namespace" to put all the secrets into
     SECRET_PREFIX: custom_prefix_
-
-    # Optional, Default = 0
-    # This enables the automatic admin token
-    # retrieval from the database
-    SQLITE_ENABLED: 1
 
     # Optional, Default = database.sqlite
     # Sets the database file name inside the
     # mounted volume
     SQLITE_DATABASE_NAME: custom_db_name.sqlite
 
-    # Optional, Default = 0
+    # Optional (Recommended), Default = 0
     # Since the cli can't output the current secret data
     # we need direct access to the database in order to compare the new data
     # with the old data. If this is disabled all active secrets will be updated
@@ -53,10 +48,11 @@ globalize:
 
     # Optional, Default = 30
     # The timeout for after each sync cycle (in seconds)
-    SYNC_TIME: 60
+    SYNC_SLEEP_TIME: 60
   volumes:
     # Optional
-    # If yo're using `SQLITE_ENABLED` you should also mount the database here
+    # You can mount the drone data here in case you want to use the
+    # database features (like data diff checks)
     # Read-Only is sufficient
     - drone-data:/data:ro
 ```

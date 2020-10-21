@@ -20,6 +20,9 @@ globalize:
     #
     DRONE_SECRETS: secret1:843hnx8h4mw,secret2:sadksajdasd:0:1
 
+    # The user of who got access to all organizations that need syncing.
+    DRONE_USER: 'your-tooluser-name'
+
     # The endpoint of the drone instance
     DRONE_SERVER: drone.company.io
 

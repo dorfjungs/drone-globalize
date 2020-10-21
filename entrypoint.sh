@@ -7,7 +7,7 @@ export DRONE_SERVER=${DRONE_SERVER?Variable DRONE_SERVER is not defined}
 
 # Get token from database and export it
 if [[ -f "$SQLITE_DATABASE_PATH" ]]; then
-  query="SELECT user_hash FROM users WHERE user_admin=1 LIMIT 1"
+  query="SELECT user_hash FROM users WHERE user_login='$DRONE_USER' LIMIT 1;"
   token=$(echo "$query" | sqlite3 -readonly $SQLITE_DATABASE_PATH)
 
   export DRONE_TOKEN=$token

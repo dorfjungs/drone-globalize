@@ -15,10 +15,10 @@ globalize:
     # | my_secret | random_value | 0              | 1                  |
     # ------------------------------------------------------------------
     #
-    # Value separator = ":"
-    # Secret separator = ","
+    # Value separator = "|:|"
+    # Secret separator = "|,|"
     #
-    DRONE_SECRETS: secret1:843hnx8h4mw,secret2:sadksajdasd:0:1
+    DRONE_SECRETS: secret1|:|843hnx8h4mw|,|secret2|:|sadksajdasd|:|0|:|1
 
     # The user of who got access to all organizations that need syncing.
     DRONE_USER: 'your-tooluser-name'

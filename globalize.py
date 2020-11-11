@@ -2,8 +2,8 @@ import sys
 import os
 import subprocess
 
-VALUE_SEPARATOR = ':'
-SECRET_SEPARATOR = ','
+VALUE_SEPARATOR = '|:|'
+SECRET_SEPARATOR = '|,|'
 SECRET_PREFIX = os.getenv('SECRET_PREFIX')
 SECRET_STRING = os.getenv('DRONE_SECRETS')
 DB_SECRET_DIFF_CHECK = int(os.getenv('DB_SECRET_DIFF_CHECK', 0))
@@ -31,7 +31,7 @@ def parse_secrets():
 
   if len(secret_splitted) > 0:
     for secret in secret_splitted:
-      parts = secret.split(':')
+      parts = secret.split(VALUE_SEPARATOR)
 
       secrets.append(create_secret(
         SECRET_PREFIX + parts[0],
